@@ -1,0 +1,205 @@
+/* Font Futura PT Light: Copyright ©ParaType, 2007. All rights reserved.*/
+@font-face {
+  font-family: "FuturaPT";
+  font-style: normal;
+  font-weight: 300;
+  src: url(../fonts/FuturaPT-300.woff2) format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: "FuturaPT";
+  font-style: normal;
+  font-weight: 400;
+  src: url(../fonts/FuturaPT-400.woff2) format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: "FuturaPT";
+  font-style: normal;
+  font-weight: 500;
+  src: url(../fonts/FuturaPT-500.woff2) format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: "FuturaPT";
+  font-style: normal;
+  font-weight: 600;
+  src: url(../fonts/FuturaPT-600.woff2) format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: "FuturaPT";
+  font-style: normal;
+  font-weight: 700;
+  src: url(../fonts/FuturaPT-700.woff2) format("woff2");
+  font-display: swap;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "FuturaPT", sans-serif;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+/* nav */
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  padding: 30px 0;
+  transition: 0.3s;
+}
+
+nav.active {
+  padding: 20px 0;
+  background-color: #0f1015;
+}
+
+nav .logo {
+  display: flex;
+  align-items: center;
+}
+
+nav .logo a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav .logo a svg {
+  width: 150px;
+  height: auto;
+}
+
+nav .links {
+  display: flex;
+  align-items: center;
+}
+
+nav .links > ul {
+  display: flex;
+}
+
+nav .links > ul > li {
+  padding: 0 7px;
+}
+
+nav .links > ul > li a {
+  color: #ebe7d9;
+  transition: 0.3s;
+}
+
+nav .links > ul > li a.active {
+  color: #f55139;
+}
+
+nav .links > ul > li:hover a {
+  color: #f55139;
+}
+
+nav .burger {
+  display: none;
+}
+
+nav .burger a svg {
+  fill: #ebe7d9;
+  width: 35px;
+  height: 35px;
+  transition: 0.3s;
+}
+
+nav .burger a:hover svg {
+  fill: #f55139;
+}
+
+.nav-overlay{
+  visibility: hidden;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 9;
+  transition: 0.3s;
+}
+
+.nav-overlay.active{
+  visibility: visible;
+  opacity: 1;
+}
+
+@media screen and (max-width: 991px) {
+  nav .links {
+    display: flex;
+    position: fixed;
+    right: -100%;
+    top: 0;
+    bottom: 0;
+    transition: 0.3s;
+    z-index: 10;
+    align-items: baseline;
+    background-color: #0f1015;
+    padding: 18px 0 0 0;
+  }
+
+  nav .links > ul > li{
+    padding: 15px 15px 15px 15px;
+    border-bottom: 3px solid rgba(255, 50, 0, 0.5);
+  }
+
+  nav .links ul{
+    flex-direction: column;
+  }
+
+  nav .links.active{
+    display: flex;
+    right: 0;
+  }
+
+  nav .burger {
+    display: block;
+  }
+
+  nav .row {
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 1200px) {
+  nav .links > ul > li {
+    padding: 0 22px;
+  }
+}
+
+@media (min-width: 1400px) {
+  nav .links > ul > li {
+    padding: 0 37px;
+  }
+}
+/* nav */
+
+/* footer */
+
+footer {
+  padding: 30px 0;
+  background-color: #ff3200;
+  color: #fff;
+}
+
+/* footer */

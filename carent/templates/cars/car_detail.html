@@ -1,0 +1,232 @@
+{% extends "base.html" %} 
+{% load static %} 
+{% block title %}Carent — {{car.brand}} {{car.name}}{% endblock title %} 
+{% block meta %}
+<meta name="description" content="{{car.brand}} {{car.name}}" />
+{% endblock meta %} 
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/car.css' %}" />
+<link rel="stylesheet" href="{% static 'css/ui-message/message.css' %}" />
+{% endblock styles %} 
+{% block content %}
+<main>
+  <section class="comeback">
+    <div class="container">
+      <a href="{% url 'index' %}#{{car.id}}" class="comeback-button">← Назад</a>
+    </div>
+  </section>
+  <section class="detail" data-car="{{car.id}}">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-6">
+          <div class="left">
+            <div class="slider">
+              <img
+                src="{{car.image.adaptive}}"
+                alt="image"
+                srcset="{{car.image.srcset}}"
+                sizes="(max-width: 576px) 540px,
+                                    (max-width: 768px) 720px,
+                                    (max-width: 992px) 960px,
+                                    1140px
+                                "
+                class="active"
+              />
+              {% for car_image in car.carimage_set.all %}
+              <img
+                src="{{car_image.image.adaptive}}"
+                alt="image"
+                srcset="{{car_image.image.srcset}}"
+                sizes="(max-width: 576px) 540px,
+                                    (max-width: 768px) 720px,
+                                    (max-width: 992px) 960px,
+                                    1140px
+                                "
+              />
+              {% endfor %}
+              <div class="prev">
+                <svg
+                  viewBox="0 0 7.3 13"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                >
+                  <desc>Left</desc>
+                  <polyline
+                    fill="none"
+                    stroke="#000000"
+                    stroke-linejoin="butt"
+                    stroke-linecap="butt"
+                    stroke-width="1"
+                    points="0.5,0.5 6.5,6.5 0.5,12.5"
+                  ></polyline>
+                </svg>
+              </div>
+              <div class="next">
+                <svg
+                  viewBox="0 0 7.3 13"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                >
+                  <desc>Right</desc>
+                  <polyline
+                    fill="none"
+                    stroke="#000000"
+                    stroke-linejoin="butt"
+                    stroke-linecap="butt"
+                    stroke-width="1"
+                    points="0.5,0.5 6.5,6.5 0.5,12.5"
+                  ></polyline>
+                </svg>
+              </div>
+            </div>
+            <div class="tumbnails">
+              <div class="tumbnail active">
+                <img src="{{car.image.tumbnail}}" alt="image" />
+              </div>
+              {% for car_image in car.carimage_set.all %}
+              <div class="tumbnail">
+                <img src="{{car_image.image.tumbnail}}" alt="image" />
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-6">
+          <div class="right">
+            <h1>{{car.brand.name}} {{car.name}}</h1>
+            <div class="prices">
+              <span class="price"><span>{{car.price_with_discount}}</span> BYN</span>
+              {% if car.price != car.price_with_discount %}
+              <span class="without-discount"><span>{{car.price}}</span> BYN</span>
+              {% endif %}
+            </div>
+            <div class="rent">
+              <div class="day-counter">
+                <div class="minus">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    class="bi bi-dash"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"
+                    />
+                  </svg>
+                </div>
+                <input type="number" min="1" max="9999" value="1" />
+                <div class="plus">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    class="bi bi-plus"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <button>Забронировать</button>
+            </div>
+            <span class="choose">Выберите количество дней выше</span>
+            <div class="info">
+              {% for property, value in car.characteristics.items %}
+              <div class="info-group">
+                <span class="property">{{property}}:</span>
+                <span class="value">{{value}}</span>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="auto">
+    <div class="container">
+      <h2 class="title">Смотрите также</h3>
+      <div class="row cars">
+        {% for car in cars %}
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="car" id="{{car.id}}">
+            <a class="img" href="{{car.get_absolute_url}}">
+              <img
+                src="{{car.image.adaptive}}"
+                alt=""
+                srcset="{{car.image.srcset}}"
+                sizes="(max-width: 576px) 540px,
+                             (max-width: 768px) 720px,
+                             (max-width: 992px) 960px,
+                             1140px
+                             "
+              />
+              <div class="search">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  class="bi bi-search"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+                  />
+                </svg>
+              </div>
+            </a>
+            <h4>{{car.brand.name}} {{car.name}}</h4>
+            <div class="prices">
+              <span class="price">{{car.price_with_discount}} BYN</span>
+              {% if car.price != car.price_with_discount %}
+              <span class="without-discount">{{car.price}} BYN</span>
+              {% endif %}
+            </div>
+            <div class="info">
+              {% for property, value in car.characteristics.items %}
+              <div class="info-group">
+                <span class="property">{{property}}:</span>
+                <span class="value">{{value}}</span>
+              </div>
+              {% endfor %}
+            </div>
+            <a class="rent" href="{{car.get_absolute_url}}">Забронировать</a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+</main>
+<div class="overlay" style="display: none;"></div>
+<div class="modal" style="display: none;">
+    <div class="form">
+        <div class="car">
+            <div class="left">
+                <img src="{{car.image.tumbnail}}" alt="image">
+                <span>{{car.brand.name}} {{car.name}}</span>
+            </div>
+            <div class="right">
+                <span class="sum"><span></span> BYN</span>
+                <span class="days"><span></span> дн.</span>
+            </div>
+        </div>
+        <form>
+            <label for="name">Имя</label>
+            <span class="error name">Имя должно состоять из 1 до 255 букв</span>
+            <input type="text" name="name" placeholder="Ваше имя">
+            <label for="phone">Ваш телефон</label>
+            <span class="error phone">Некорректный номер телефона. Введите корректный номер. Например: +375291234567</span>
+            <input type="text" name="phone" placeholder="+375441234567">
+            <button disabled>Забронировать</button>
+        </form>
+        <div class="close"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+          </svg></div>
+    </div>
+</div>
+{% endblock content %} 
+{% block scripts %}
+<script src="{% static 'js/ui-message/message.js' %}"></script>
+<script src="{% static 'js/car.js' %}"></script>
+{% endblock scripts %}

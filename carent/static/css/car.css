@@ -1,0 +1,502 @@
+nav {
+  background-color: #0f1015;
+}
+
+main {
+  padding-top: 120px;
+}
+
+/* comeback */
+.comeback {
+}
+/* comeback */
+
+/* detail */
+.detail {
+  padding: 60px 0;
+}
+
+.detail .row {
+  margin-top: -25px;
+}
+
+.detail .left,
+.detail .right {
+  margin-top: 25px;
+}
+
+.detail .left .slider {
+  position: relative;
+  height: 400px;
+  margin-bottom: 4px;
+}
+
+.detail .left .slider img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.detail .left .slider img.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.detail .left .slider .prev {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  position: absolute;
+  left: 20px;
+  top: calc(50% - 15px);
+  transform: rotate(180deg);
+  cursor: pointer;
+  z-index: 2;
+}
+
+.detail .left .slider .next {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  position: absolute;
+  right: 20px;
+  top: calc(50% - 15px);
+  cursor: pointer;
+  z-index: 2;
+}
+
+.detail .left .slider .prev svg,
+.detail .left .slider .next svg {
+  width: 7px;
+}
+
+.detail .left .tumbnails {
+  margin-top: -4px;
+  margin-left: -4px;
+  display: flex;
+}
+
+.detail .left .tumbnails .tumbnail {
+  margin: 4px;
+  border: 4px solid transparent;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.detail .left .tumbnails .tumbnail.active {
+  border-color: #ff3200;
+}
+
+.detail .left .tumbnails .tumbnail img {
+  display: block;
+  pointer-events: none;
+}
+
+.detail .right .prices {
+  margin-top: 20px;
+}
+
+.detail .right .prices .price,
+.detail .right .prices .without-discount {
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.detail .right .prices .without-discount {
+  margin-left: 3px;
+  color: #bdbdbd;
+  text-decoration: line-through;
+}
+
+.detail .right .rent {
+  display: flex;
+  margin-left: -4px;
+  margin-top: 20px;
+}
+
+.detail .right .rent > * {
+  margin-left: 4px;
+}
+
+.detail .right .rent .day-counter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 45px;
+  border-radius: 5px;
+  background-color: #fff;
+  border: 1px solid #777;
+}
+
+.detail .right .rent .day-counter input {
+  border: none;
+  outline: none;
+  text-align: center;
+  color: #777;
+}
+
+.detail .right .rent .day-counter input::-webkit-outer-spin-button,
+.detail .right .rent .day-counter input::-webkit-inner-spin-button {
+  display: none;
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.detail .right .rent .day-counter svg {
+  width: 25px;
+  fill: #777;
+  display: block;
+}
+
+.detail .right .rent .day-counter .minus,
+.detail .right .rent .day-counter .plus {
+  cursor: pointer;
+}
+
+.detail .right .rent button {
+  border-radius: 5px;
+  border: 1px solid #ff3200;
+  background-color: #ff3200;
+  transition: 0.3s;
+  padding: 0 30px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.detail .right .rent button:hover {
+  background-color: transparent;
+  color: #ff3200;
+}
+
+.detail .right .choose {
+  margin-top: 30px;
+  font-size: 20px;
+  font-weight: 500;
+  display: block;
+}
+
+.detail .right .info {
+  margin-top: 8px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.detail .right .info .info-group {
+  margin-top: 8px;
+}
+
+.detail .right .info .info-group:first-child {
+  margin-top: 0;
+}
+/* detail */
+
+/* auto */
+
+.auto {
+  padding: 60px 0;
+}
+
+.auto .cars {
+  margin-top: 20px;
+}
+
+.auto .cars > * {
+  margin-top: 30px;
+}
+
+.auto .cars .car {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.auto .cars .car .img {
+  height: 300px;
+  width: 100%;
+  position: relative;
+}
+
+.auto .cars .car .img .search {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2));
+  transition: 0.3s;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.auto .cars .car .img .search:hover {
+  opacity: 1;
+}
+
+.auto .cars .car .img .search svg {
+  height: 64px;
+  width: 64px;
+  fill: #ff3200;
+}
+
+.auto .cars .car .img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.auto .cars .car h4 {
+  font-size: 30px;
+  font-weight: 700;
+  margin-top: 20px;
+  line-height: 1.35;
+}
+
+.auto .cars .car .prices {
+  margin-top: 12px;
+}
+
+.auto .cars .car .prices .price,
+.auto .cars .car .prices .without-discount {
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.auto .cars .car .prices .without-discount {
+  margin-left: 3px;
+  color: #bdbdbd;
+  text-decoration: line-through;
+}
+
+.auto .cars .car .info {
+  margin-top: 8px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.auto .cars .car .info .info-group {
+  margin-top: 8px;
+}
+
+.auto .cars .car .info .info-group:first-child {
+  margin-top: 0;
+}
+
+.auto .cars .car .rent {
+  padding: 8px 30px;
+  margin-top: auto;
+  color: #ff3200;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 5px;
+  background-color: #fff;
+  transition: 0.3s;
+  border: 2px solid #ff3200;
+  cursor: pointer;
+}
+
+.auto .cars .car .rent:hover {
+  background-color: #ff3200;
+  color: #fff;
+}
+
+/* auto */
+
+/* modal */
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+  z-index: 10;
+}
+
+.overlay.active{
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal {
+  position: fixed;
+  z-index: 11;
+  margin: 65px auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 560px;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal.active{
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal .form {
+  padding: 40px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+}
+
+.modal .form .car {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal .form .car > * {
+  display: flex;
+  align-items: center;
+  margin-left: -20px;
+}
+
+.modal .form .car > * > * {
+  margin-left: 20px;
+}
+
+.modal .form .car .left img {
+  border-radius: 7px;
+}
+
+.modal .form .car .left span {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+}
+
+.modal .form .car .right span span {
+  font-weight: bold;
+}
+
+.modal form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+}
+
+.modal form label {
+  margin-top: 20px;
+}
+
+.modal form input {
+  color: #000000;
+  border: 1px solid #000000;
+  outline: none;
+  padding: 18px 20px;
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+.modal form input.valid{
+    border-color: green;
+}
+
+.modal form input.notvalid{
+    border-color: red;
+}
+
+.modal .form button {
+  border-radius: 5px;
+  border: 1px solid #ff3200;
+  background-color: #ff3200;
+  transition: 0.3s;
+  padding: 18px 30px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.modal .form button:disabled{
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.modal .form button:hover {
+  background-color: transparent;
+  color: #ff3200;
+}
+
+.modal .form .close{
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.5);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.modal .form .close svg{
+    width: 30px;
+    height: 30px;
+    fill: #000;
+    display: block;
+}
+
+.modal .error{
+    display: none;
+    color: red;
+}
+
+.modal .error.visible{
+    display: block;
+}
+
+@media screen and (max-width: 576px){
+    .modal{
+        width: 100%;
+    }
+
+    .modal .car{
+        flex-wrap: wrap;
+        margin-top: -10px;
+    }
+
+    .modal .car .left,
+    .modal .car .right{
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+
+/* modal */
