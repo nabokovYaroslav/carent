@@ -1,6 +1,10 @@
+import filecmp
 import os
 from io import BytesIO
 
+from django.core.files.storage import default_storage
+from django.core.files.base import ContentFile
+from django.conf import settings
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from PIL import Image
 
@@ -84,3 +88,12 @@ def delete_images(image_path):
 			file_path = "{}-{}x{}{}".format(base_path, resolution[0], resolution[1], extension)
 			if(os.path.isfile(file_path)):
 				os.remove(file_path)
+
+def compare_images(existing_image_path : str, image_in_memory: InMemoryUploadedFile):
+	path = default_storage.save(image_in_memory.name, ContentFile(image_in_memory.read()))
+	tmp_file = os.path.join(settings.MEDIA_ROOT, path)
+	equal = False
+	if filecmp.cmp(existing_image_path, tmp_file):
+		equal = True
+	os.remove(tmp_file)
+	return equal

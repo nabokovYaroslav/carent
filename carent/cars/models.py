@@ -8,7 +8,8 @@ from django.urls import reverse
 from eav.decorators import register_eav
 from eav.registry import EavConfig
 
-from utils.image import change_resolution, create_adaptive_resolution_image, create_adaptive_format_image, create_tumbnail_image, delete_images
+from utils.image import (change_resolution, create_adaptive_resolution_image, compare_images, 
+                        create_adaptive_format_image, create_tumbnail_image, delete_images)
 
 class CarConfig(EavConfig):
 
@@ -62,7 +63,7 @@ class Car(models.Model):
         except Car.DoesNotExist:
             instance = None
         if instance is not None:
-            if instance.image != self.image:
+            if not compare_images(instance.image.path, self.image):
                 delete_images(instance.image.path)
                 self.image = change_resolution(self.image)
         else:
