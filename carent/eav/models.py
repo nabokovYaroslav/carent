@@ -85,6 +85,10 @@ class EnumValue(models.Model):
         """String representation of `EnumValue` object."""
         return '<EnumValue {0}>'.format(self.value)
 
+    class Meta:
+        verbose_name = 'Значение группы выбора'
+        verbose_name_plural = 'Значения группы выбора'
+
 
 class EnumGroup(models.Model):
     """
@@ -105,6 +109,10 @@ class EnumGroup(models.Model):
     def __repr__(self):
         """String representation of `EnumGroup` object."""
         return '<EnumGroup {0}>'.format(self.name)
+
+    class Meta:
+        verbose_name = 'Группа выбора'
+        verbose_name_plural = 'Группы выборов'
 
 
 class Attribute(models.Model):
@@ -187,7 +195,7 @@ class Attribute(models.Model):
     # Core attributes
 
     datatype = EavDatatypeField(
-        verbose_name=_('Data Type'), choices=DATATYPE_CHOICES, max_length=6
+        verbose_name=_('Data Type'), choices=DATATYPE_CHOICES, max_length=6,
     )
 
     name = models.CharField(
@@ -376,6 +384,10 @@ class Attribute(models.Model):
     def __str__(self):
         return '{} ({})'.format(self.name, self.get_datatype_display())
 
+    class Meta:
+        verbose_name = 'Атрибут'
+        verbose_name_plural = 'Атрибуты'
+
 
 class Value(models.Model):  # noqa: WPS110
     """Putting the **V** in *EAV*.
@@ -516,7 +528,8 @@ class Value(models.Model):  # noqa: WPS110
 
     class Meta:
         unique_together = ["entity_id", "entity_ct", "attribute"]
-
+        verbose_name = 'Значение атрибута'
+        verbose_name_plural = 'Значения атрибутов'    
 
 class Entity(object):
     """
