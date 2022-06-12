@@ -18,7 +18,7 @@ def car_detail(request, pk=None):
         car_image.image.tumbnail = get_tumbnail(car_image.image.url, request.META.get('extension_image', None))
     cars = Car.objects.select_related("brand").exclude(pk=pk)
     for _car in cars:
-        _car.image.srcset = get_srcset(car.image.url, request.META.get('extension_image', None))
-        _car.image.adaptive = get_adaptive_image(car.image.url, request.META.get('extension_image', None))
+        _car.image.srcset = get_srcset(_car.image.url, request.META.get('extension_image', None))
+        _car.image.adaptive = get_adaptive_image(_car.image.url, request.META.get('extension_image', None))
         _car.characteristics = {obj.attribute.name: obj.value for obj in _car.eav.get_values()}
     return render(request, 'cars/car_detail.html', context={'cars': cars, 'car': car})

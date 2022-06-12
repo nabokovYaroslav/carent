@@ -354,21 +354,21 @@ section {
   transition: 0.3s;
 }
 
-.offer form input.notvalid{
+.offer form input.notvalid {
   border-color: red;
 }
 
-.offer form input.valid{
+.offer form input.valid {
   border-color: green;
 }
 
-.offer form .error{
+.offer form .error {
   margin-top: 20px;
   color: red;
   display: none;
 }
 
-.offer form .error.visible{
+.offer form .error.visible {
   display: block;
 }
 
@@ -392,11 +392,11 @@ section {
   transition: 0.3s;
 }
 
-.offer form select.notvalid{
+.offer form select.notvalid {
   border-color: red;
 }
 
-.offer form select.valid{
+.offer form select.valid {
   border-color: green;
 }
 
@@ -417,7 +417,7 @@ section {
   transition: 0.3s;
 }
 
-.offer form button:disabled{
+.offer form button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
@@ -458,6 +458,19 @@ section {
   font-size: 23px;
   line-height: 1.55;
   font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+.contacts .modal p .img {
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.contacts .modal p .img svg {
+  width: 16px;
+  height: 16px;
 }
 
 /* contacts */
